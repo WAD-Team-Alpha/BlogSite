@@ -1,0 +1,6 @@
+[submodule "The-BlogSite"]
+	path = The-BlogSite
+	url = https://github.com/WAD-Team-Alpha/The-BlogSite.git
+[submodule "BlogSite-API"]
+	path = BlogSite-API
+	url = https://github.com/WAD-Team-Alpha/BlogSite-API.git
