@@ -1,16 +1,18 @@
 version: "3.8"
 services:
   client-app:
-    image: client-app
-    build: ./client/
-    stdin_open: true
+    image: client-app-prod
+    restart: unless-stopped
     ports:
-      - $REACT_LOCAL_PORT:$REACT_LOCAL_PORT
+      - "3000:3000"
+      - "80:80"
+      - "443:443"
     networks:
       - blogsite
   api-server:
     image: api-server
-    build: ./server/
+    restart: unless-stopped
+    env_file: ./BlogSite-API/env/.env.${ENV}
     ports:
       - $NODE_LOCAL_PORT:$NODE_LOCAL_PORT
     networks:

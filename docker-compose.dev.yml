@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  client-app:
+    image: client-app
+    build: ./The-BlogSite
+    stdin_open: true
+    ports:
+      - $REACT_LOCAL_PORT:$REACT_LOCAL_PORT
+    networks:
+      - blogsite
+    volumes:
+      - ./The-BlogSite/:/usr/src/app
+      - /usr/src/app/node_modules
+  api-server:
+    image: api-server
+    build: ./BlogSite-API
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_LOCAL_PORT
+    networks:
+      - blogsite
+    volumes:
+      - ./BlogSite-API/:/usr/src/app
+      - /usr/src/app/node_modules
+networks:
+  blogsite:
+    driver: bridge
