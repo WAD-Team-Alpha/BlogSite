@@ -4,7 +4,6 @@ jobs:
     executor: node/default
     steps:
       - checkout
-      - node/install-packages
       - setup_remote_docker:
           version: 18.06.0-ce
       - run:
