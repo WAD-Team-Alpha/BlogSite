@@ -1,0 +1,11 @@
+setup:
+  config:
+    APP_NAME: The-BlogSite
+build:
+  docker:
+    client-app: Dockerfile.prod
+    api-server: Dockerfile
+  config:
+    NODE_ENV: production
+run:
+  blogsite: make run-prod
